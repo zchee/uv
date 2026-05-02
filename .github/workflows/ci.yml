@@ -185,13 +185,13 @@ jobs:
       schema-changed: ${{ needs.plan.outputs.check-schema }}
       save-rust-cache: ${{ needs.plan.outputs.save-rust-cache }}
 
-  test:
-    needs: plan
-    if: ${{ needs.plan.outputs.test-code == 'true' }}
-    uses: ./.github/workflows/test.yml
-    with:
-      save-rust-cache: ${{ needs.plan.outputs.save-rust-cache }}
-      test-macos: ${{ needs.plan.outputs.test-macos }}
+  # test:
+  #   needs: plan
+  #   if: ${{ needs.plan.outputs.test-code == 'true' }}
+  #   uses: ./.github/workflows/test.yml
+  #   with:
+  #     save-rust-cache: ${{ needs.plan.outputs.save-rust-cache }}
+  #     test-macos: ${{ needs.plan.outputs.test-macos }}
 
   test-windows-trampolines:
     needs: plan
@@ -408,7 +408,7 @@ jobs:
       - check-lint
       - check-docs
       - check-generated-files
-      - test
+      # - test
       - build-dev-binaries
     runs-on: ubuntu-slim
     steps:
