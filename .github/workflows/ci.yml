@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    # Runs “At 03:00.” (see https://crontab.guru)
+    - cron: "0 3 * * *"
+      timezone: "Asia/Tokyo"
 
 permissions: {}
 
